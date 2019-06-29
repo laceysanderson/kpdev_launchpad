@@ -2394,3 +2394,51 @@ footer .menu li a:hover {
   font-weight: 600;
   color: #444545;
 }
+
+/**
+ * Colour swatches (credit: Mockflow)
+ */
+.mfSectionBody {
+  clear: both;
+  height: 150px;
+}
+.mfSectionBody .mfColorItem, .mfSectionBody .mfFontItem, .mfSectionBody .mfImageItem, .mfSectionBody .mfTextItem {
+     margin-left: 0 !important;
+ }
+.mfColorItem {
+     width: 100px;
+     height: 150px;
+     border-radius: 3px;
+     padding: 10px;
+     float: left;
+     margin: 0 20px;
+         margin-left: 20px;
+}
+.mfColorItem .mfColorItemTitle {
+     font-size: 14px;
+     color: #333;
+     margin-bottom: 5px;
+     text-align: center;
+     text-overflow: ellipsis;
+     overflow: hidden;
+     white-space: nowrap;
+ }
+ .mfColorItem .mfColorItemPanel {
+     height: 100px;
+     margin-bottom: 5px;
+     border-radius: 3px;
+}
+.mfColorItemPanelBorder {
+    border: 1px solid #eee;
+}
+
+.mfColorItem.mfColorItemBlock {
+    width: 130px !important;
+    height: 100px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+h4 {
+  margin-top: 50px;
+}
