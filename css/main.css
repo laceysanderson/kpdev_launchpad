@@ -2388,3 +2388,9 @@ footer .menu li a:hover {
   font-size: 18px;
   margin-bottom: 0;
 }
+
+.websites-item a h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #444545;
+}
