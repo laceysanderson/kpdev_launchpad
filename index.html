@@ -27,6 +27,15 @@
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#websites">DevSites</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#style">Style</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#testing">Testing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#rst-guide">RTD</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -224,6 +233,95 @@
       </div>
     </section>
     <!-- Style Guide Section End -->
+
+    <!-- Testing Start -->
+    <section id="testing" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Testing</h2>
+          <span>Testing</span>
+          <p class="section-subtitle">This section describes automated testing in the Tripal/Drupal environment.</p>
+        </div>
+
+        <div class="controls text-center">
+          <a class="filter btn btn-common btn-effect" href="https://tripaltestsuite.readthedocs.io/en/latest/" target="_blank">
+            Tripal Test Suite
+          </a>
+          <a class="filter btn btn-common btn-effect" href="https://phpunit.readthedocs.io/en/8.2/assertions.html" target="_blank">
+            PHPUnit Assertions
+          </a>
+          <a class="filter btn btn-common btn-effect" href="https://github.com/fzaninotto/Faker" target="_blank">
+            Faker
+          </a>
+        </div>
+
+        <h5>Creating Tests</h5>
+
+        <p>Using <code class="docutils literal notranslate"><span class="pre">tripaltest</span></code>, you can create test files pre-populated with all the requirements.
+        To create a new test, run the following command from your module root directory:</p>
+
+        <pre>
+          # Creates a test file called ExampleTest.php in the tests folder
+          ./vendor/bin/tripaltest make:test ExampleTest
+
+          # Creates a test file called ExampleTest.php in tests/Features/Entities
+          # This will automatically detect and configure the namespace of your script
+          ./vendor/bin/tripaltest make:test Features/Entities/ExampleTest
+        </pre>
+
+
+        <h5>Running Tests</h5>
+
+        <p>Tripal Test Suite auto installs PHPunit as part of it’s dependencies in composer.json. Therefore, running tests in Tripal Test Suite is done via phpunit using the following command which will read your phpunit.xml and runs the tests accordingly.. </p>
+
+        <pre>
+          ./vendor/bin/phpunit
+        </pre>
+
+        <h5>Fake Chado data for tests</h5>
+
+        <p>Are you creating fake values to insert into Chado? If so, check out Factories which will generate all the fake values automatically. For example:</p>
+
+        <pre>
+          # Generates 100 controlled vocabularies.
+          # @return an array of vocabularies
+          $controlledVocabs = factory('chado.cv', 100)->create()
+        </pre>
+
+        <h5>Generating Fake Variables: Faker</h5>
+
+        <p>The recommended method to create fake values for use in testing is to use the PHP Faker library by @fzaninotto. To use this library in your Tripal tests, simply include it at the top of the class:</p>
+
+        <pre>
+          use StatonLab\TripalTestSuite\DBTransaction;
+          use StatonLab\TripalTestSuite\TripalTestCase;
+          use Faker\Factory;
+
+          class ExampleTest extends TripalTestCase {
+            /**
+             * Stuff
+             */
+          }
+        </pre>
+
+        <p>Then instantiate it in your test method and create fake data using one of the various methods available through the library.</p>
+
+        <pre>
+          private function create_version() {
+
+              // Generate a fake version.
+              $faker = Factory::create();
+              $version = $faker->randomFloat(2, 1, 5);
+              return $version;
+
+          }
+        </pre>
+
+        <p>More more information on what is provided by the fake library, check out their documentation here: github.com/fzaninotto/Faker</p>
+
+      </div>
+    </section>
+    <!-- END Testing -->
 
     <!--  RST Guide Start -->
     <section id="rst-guide" class="section">
