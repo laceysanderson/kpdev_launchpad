@@ -2395,6 +2395,17 @@ footer .menu li a:hover {
   color: #444545;
 }
 
+h5 {
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+code {
+  color: #3a7f21;
+}
+#rst-guide p {
+  margin-bottom: 15px;
+}
 /**
  * Colour swatches (credit: Mockflow)
  */
